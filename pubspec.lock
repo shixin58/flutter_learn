@@ -62,6 +62,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_color_plugin:
+    dependency: "direct main"
+    description:
+      name: flutter_color_plugin
+      sha256: "62ffd18f0bc7abb8d66f2c49fa26e4ecfc72b90945a38fc6f85cc091c82d41ed"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -186,3 +194,4 @@ packages:
     version: "2.1.4"
 sdks:
   dart: ">=2.19.4 <3.0.0"
+  flutter: ">=1.17.0"
