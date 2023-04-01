@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/flutter_layout_page.dart';
+import 'package:my_app/flutter_widget_lifecycle.dart';
 import 'package:my_app/gesture_page.dart';
 import 'package:my_app/launch_page.dart';
 import 'package:my_app/less_group_page.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         'gesture':(BuildContext context)=>const GesturePage(),
         'res':(BuildContext context)=>const ResPage(),
         'launch':(BuildContext context)=>const LaunchPage(),
+        'widgetLifecycle':(BuildContext context)=>const WidgetLifecycle(),
       },
     );
   }
@@ -65,6 +67,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('如何检测用户手势及处理点击事件？', const GesturePage(),'gesture'),
         _item('如何导入和使用Flutter资源文件？', const ResPage(), 'res'),
         _item('如何打开第三方应用？', const LaunchPage(), 'launch'),
+        _item('Flutter页面生命周期', const WidgetLifecycle(), 'widgetLifecycle'),
       ],
     );
   }
