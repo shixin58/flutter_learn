@@ -5,6 +5,7 @@ import 'package:my_app/flutter_widget_lifecycle.dart';
 import 'package:my_app/gesture_page.dart';
 import 'package:my_app/launch_page.dart';
 import 'package:my_app/less_group_page.dart';
+import 'package:my_app/photo_app_page.dart';
 import 'package:my_app/plugin_use.dart';
 import 'package:my_app/res_page.dart';
 import 'package:my_app/stateful_group_page.dart';
@@ -33,7 +34,7 @@ class _DynamicThemeState extends State<DynamicTheme> {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        appBar: AppBar(title: const Text('如何创建和使用Flutter的路由和导航？')),
+        appBar: AppBar(title: const Text('Flutter Demo')),
         body: Column(
           children: [
             ElevatedButton(
@@ -62,6 +63,7 @@ class _DynamicThemeState extends State<DynamicTheme> {
         'launch':(BuildContext context)=>const LaunchPage(),
         'widgetLifecycle':(BuildContext context)=>const WidgetLifecycle(),
         'appLifecycle':(BuildContext context)=>const AppLifecycle(),
+        'photo':(BuildContext context)=>const PhotoApp(),
       },
     );
   }
@@ -96,6 +98,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('如何打开第三方应用？', const LaunchPage(), 'launch'),
         _item('Flutter页面生命周期', const WidgetLifecycle(), 'widgetLifecycle'),
         _item('Flutter应用生命周期', const AppLifecycle(), 'appLifecycle'),
+        _item('拍照App开发', const PhotoApp(), 'photo'),
       ],
     );
   }
