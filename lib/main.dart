@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/app_lifecycle.dart';
 import 'package:my_app/flutter_layout_page.dart';
 import 'package:my_app/flutter_widget_lifecycle.dart';
 import 'package:my_app/gesture_page.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         'res':(BuildContext context)=>const ResPage(),
         'launch':(BuildContext context)=>const LaunchPage(),
         'widgetLifecycle':(BuildContext context)=>const WidgetLifecycle(),
+        'appLifecycle':(BuildContext context)=>const AppLifecycle(),
       },
     );
   }
@@ -68,6 +70,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('如何导入和使用Flutter资源文件？', const ResPage(), 'res'),
         _item('如何打开第三方应用？', const LaunchPage(), 'launch'),
         _item('Flutter页面生命周期', const WidgetLifecycle(), 'widgetLifecycle'),
+        _item('Flutter应用生命周期', const AppLifecycle(), 'appLifecycle'),
       ],
     );
   }
