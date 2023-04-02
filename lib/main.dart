@@ -28,6 +28,7 @@ class _DynamicThemeState extends State<DynamicTheme> {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        // fontFamily: 'RubikMonoOne',// 将字体应用到全局
         brightness: _brightness,
         primarySwatch: Colors.blue,
       ),
@@ -45,7 +46,7 @@ class _DynamicThemeState extends State<DynamicTheme> {
                   }
                 });
               },
-              child: const Text('切换主题'),
+              child: const Text('切换主题abc', style: TextStyle(fontFamily: 'RubikMonoOne'),),
             ),
             const RouteNavigator()
           ],
