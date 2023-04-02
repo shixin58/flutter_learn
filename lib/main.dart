@@ -10,22 +10,46 @@ import 'package:my_app/res_page.dart';
 import 'package:my_app/stateful_group_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const DynamicTheme());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+// StatelessWidget不具备动态修改主题的能力
+class DynamicTheme extends StatefulWidget {
+  const DynamicTheme({Key? key}) : super(key: key);
 
+  @override
+  State<DynamicTheme> createState() => _DynamicThemeState();
+}
+
+class _DynamicThemeState extends State<DynamicTheme> {
+  Brightness _brightness = Brightness.light;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        brightness: _brightness,
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
         appBar: AppBar(title: const Text('如何创建和使用Flutter的路由和导航？')),
-        body: const RouteNavigator(),
+        body: Column(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  if (_brightness == Brightness.dark) {
+                    _brightness = Brightness.light;
+                  } else {
+                    _brightness = Brightness.dark;
+                  }
+                });
+              },
+              child: const Text('切换主题'),
+            ),
+            const RouteNavigator()
+          ],
+        ),
       ),
       routes: <String,WidgetBuilder>{
         'plugin':(BuildContext context)=>const PluginUse(),
