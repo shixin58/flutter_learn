@@ -6,6 +6,7 @@ import 'package:my_app/gesture_page.dart';
 import 'package:my_app/launch_page.dart';
 import 'package:my_app/less_group_page.dart';
 import 'package:my_app/photo_app_page.dart';
+import 'package:my_app/photo_app_page_old.dart';
 import 'package:my_app/plugin_use.dart';
 import 'package:my_app/res_page.dart';
 import 'package:my_app/stateful_group_page.dart';
@@ -35,7 +36,7 @@ class _DynamicThemeState extends State<DynamicTheme> {
       ),
       home: Scaffold(
         appBar: AppBar(title: const Text('Flutter Demo')),
-        body: Column(
+        body: ListView(
           children: [
             ElevatedButton(
               onPressed: () {
@@ -64,6 +65,7 @@ class _DynamicThemeState extends State<DynamicTheme> {
         'widgetLifecycle':(BuildContext context)=>const WidgetLifecycle(),
         'appLifecycle':(BuildContext context)=>const AppLifecycle(),
         'photo':(BuildContext context)=>const PhotoApp(),
+        'photoOld':(BuildContext context)=>const PhotoAppOld(),
       },
     );
   }
@@ -84,11 +86,9 @@ class _RouteNavigatorState extends State<RouteNavigator> {
       children: <Widget>[
         SwitchListTile(
           title: Text('${byName?'':'不'}通过路由跳转'),
-            value: byName, onChanged: (value){
-          setState(() {
-            byName = value;
-          });
-        }),
+          value: byName,
+          onChanged: (value) { setState(() { byName = value; }); },
+        ),
         _item('如何使用Flutter包和插件？',const PluginUse(),'plugin'),
         _item('StatelessWidget与基础组件',const LessGroupPage(),'less'),
         _item('StatefulWidget与基础组件',const StatefulGroup(),'stateful'),
@@ -99,6 +99,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('Flutter页面生命周期', const WidgetLifecycle(), 'widgetLifecycle'),
         _item('Flutter应用生命周期', const AppLifecycle(), 'appLifecycle'),
         _item('拍照App开发', const PhotoApp(), 'photo'),
+        _item('拍照App开发old', const PhotoAppOld(), 'photoOld'),
       ],
     );
   }
