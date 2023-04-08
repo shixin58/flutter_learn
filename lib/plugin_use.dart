@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_color_plugin/flutter_color_plugin.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class PluginUse extends StatefulWidget {
   const PluginUse({super.key});
@@ -100,6 +101,23 @@ class _PluginUseState extends State<PluginUse> {
             FutureBuilder<Directory?>(
               future: _appDocumentsDirectory,
               builder: _buildDirectory,
+            ),
+            Stack(
+              children: [
+                const Center(
+                  child: CircularProgressIndicator(),
+                ),
+                Center(
+                  child: FadeInImage.memoryNetwork(
+                    placeholder: kTransparentImage,
+                    image: 'http://www.devio.org/img/avatar.png',
+                  ),
+                )
+              ],
+            ),
+            FadeInImage.assetNetwork(
+              placeholder: 'images/loading.gif',
+              image: 'http://www.devio.org/img/avatar.png',
             ),
           ],
         ),
