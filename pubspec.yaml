@@ -39,6 +39,7 @@ dependencies:
   url_launcher: ^6.1.10
   image_picker: ^0.8.7+1
   video_player: ^2.6.0
+  path_provider: ^2.0.14
 
 dev_dependencies:
   flutter_test:
