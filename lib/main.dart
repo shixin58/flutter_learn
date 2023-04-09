@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/animation_dev.dart';
 import 'package:my_app/app_lifecycle.dart';
 import 'package:my_app/flutter_layout_page.dart';
 import 'package:my_app/flutter_widget_lifecycle.dart';
@@ -68,6 +69,7 @@ class _DynamicThemeState extends State<DynamicTheme> {
         'photo':(BuildContext context)=>const PhotoApp(),
         'photoOld':(BuildContext context)=>const PhotoAppOld(),
         'image':(BuildContext context)=>const ImageDev(),
+        'animation':(BuildContext context)=>const AnimationDev(),
       },
     );
   }
@@ -103,6 +105,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('拍照App开发', const PhotoApp(), 'photo'),
         _item('拍照App开发old', const PhotoAppOld(), 'photoOld'),
         _item('图片控件开发详解', const ImageDev(), 'image'),
+        _item('动画开发指南', const AnimationDev(), 'animation'),
       ],
     );
   }
