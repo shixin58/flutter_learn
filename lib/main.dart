@@ -3,6 +3,7 @@ import 'package:my_app/app_lifecycle.dart';
 import 'package:my_app/flutter_layout_page.dart';
 import 'package:my_app/flutter_widget_lifecycle.dart';
 import 'package:my_app/gesture_page.dart';
+import 'package:my_app/image_dev.dart';
 import 'package:my_app/launch_page.dart';
 import 'package:my_app/less_group_page.dart';
 import 'package:my_app/photo_app_page.dart';
@@ -66,6 +67,7 @@ class _DynamicThemeState extends State<DynamicTheme> {
         'appLifecycle':(BuildContext context)=>const AppLifecycle(),
         'photo':(BuildContext context)=>const PhotoApp(),
         'photoOld':(BuildContext context)=>const PhotoAppOld(),
+        'image':(BuildContext context)=>const ImageDev(),
       },
     );
   }
@@ -100,6 +102,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('Flutter应用生命周期', const AppLifecycle(), 'appLifecycle'),
         _item('拍照App开发', const PhotoApp(), 'photo'),
         _item('拍照App开发old', const PhotoAppOld(), 'photoOld'),
+        _item('图片控件开发详解', const ImageDev(), 'image'),
       ],
     );
   }
