@@ -99,3 +99,6 @@ flutter:
     - family: RubikMonoOne
       fonts:
         - asset: fonts/RubikMonoOne-Regular.ttf
+    - family: iconfont
+      fonts:
+        - asset: fonts/iconfont.ttf

@@ -48,6 +48,12 @@ class _ImageDevState extends State<ImageDev> {
               placeholder: (context, url) => const CircularProgressIndicator(),
               errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
+            const Icon(Icons.android, size: 100.0,),
+            const Icon(
+              IconData(0xe783, fontFamily: 'iconfont',),
+              size: 50,
+              color: Colors.red,
+            )
           ],
         ),
       ),
