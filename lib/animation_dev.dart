@@ -10,24 +10,13 @@ class AnimationDev extends StatefulWidget {
 class _AnimationDevState extends State<AnimationDev> with SingleTickerProviderStateMixin {
   late Animation<double> animation;
   late AnimationController controller;
-  AnimationStatus? animationStatus;
-  double animationValue = 0.0;
 
   @override
   void initState() {
     super.initState();
     controller = AnimationController(vsync: this, duration: const Duration(seconds: 2));
-    animation = Tween<double>(begin: 0.0, end: 300.0).animate(controller)
-    ..addListener(() {
-      setState(() {
-        animationValue = animation.value;
-      });
-    })
-    ..addStatusListener((AnimationStatus status) {
-      setState(() {
-        animationStatus = status;
-      });
-    });
+    animation = Tween<double>(begin: 0.0, end: 300.0).animate(controller);
+    controller.forward();
   }
 
   @override
@@ -42,24 +31,7 @@ class _AnimationDevState extends State<AnimationDev> with SingleTickerProviderSt
           child: const Icon(Icons.arrow_back),
         ),
       ),
-      body: Column(
-        children: [
-          GestureDetector(
-            onTap: () {
-              controller.reset();
-              controller.forward();
-            },
-            child: const Text('Start', textDirection: TextDirection.ltr,),
-          ),
-          Text('State: ${animationStatus?.toString()}', textDirection: TextDirection.ltr,),
-          Text('State: $animationValue', textDirection: TextDirection.ltr,),
-          SizedBox(
-            width: animationValue,
-            height: animationValue,
-            child: const FlutterLogo(),
-          ),
-        ],
-      ),
+      body: AnimatedLogo(animation: animation),
     );
   }
 
@@ -67,5 +39,24 @@ class _AnimationDevState extends State<AnimationDev> with SingleTickerProviderSt
   void dispose() {
     controller.dispose();
     super.dispose();
+  }
+}
+
+class AnimatedLogo extends AnimatedWidget {
+  // const AnimatedLogo({super.key, required super.listenable});
+  const AnimatedLogo({Key? key, required Animation<double> animation})
+      : super(key: key, listenable: animation);
+
+  @override
+  Widget build(BuildContext context) {
+    final Animation<double> animation = listenable as Animation<double>;
+    return Center(
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 10.0),
+        width: animation.value,
+        height: animation.value,
+        child: const FlutterLogo(),
+      ),
+    );
   }
 }
