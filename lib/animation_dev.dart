@@ -7,6 +7,7 @@ class AnimationDev extends StatefulWidget {
   State<AnimationDev> createState() => _AnimationDevState();
 }
 
+// 定义Animation对象
 class _AnimationDevState extends State<AnimationDev> with SingleTickerProviderStateMixin {
   late Animation<double> animation;
   late AnimationController controller;
@@ -31,7 +32,7 @@ class _AnimationDevState extends State<AnimationDev> with SingleTickerProviderSt
           child: const Icon(Icons.arrow_back),
         ),
       ),
-      body: AnimatedLogo(animation: animation),
+      body: GrowTransition(animation: animation, child: const LogoWidget()),
     );
   }
 
@@ -42,21 +43,36 @@ class _AnimationDevState extends State<AnimationDev> with SingleTickerProviderSt
   }
 }
 
-class AnimatedLogo extends AnimatedWidget {
-  // const AnimatedLogo({super.key, required super.listenable});
-  const AnimatedLogo({Key? key, required Animation<double> animation})
-      : super(key: key, listenable: animation);
+// 业务逻辑：显示Logo
+class LogoWidget extends StatelessWidget {
+  const LogoWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final Animation<double> animation = listenable as Animation<double>;
-    return Center(
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 10.0),
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 10.0),
+      child: const FlutterLogo(),
+    );
+  }
+}
+
+// 用AnimatedBuilder渲染过渡效果
+class GrowTransition extends StatelessWidget {
+  final Widget child;
+  final Animation<double> animation;
+
+  const GrowTransition({Key? key, required this.child, required this.animation}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: animation,
+      builder: (context,child)=>SizedBox(
         width: animation.value,
         height: animation.value,
-        child: const FlutterLogo(),
+        child: child,
       ),
+      child: child,
     );
   }
 }
