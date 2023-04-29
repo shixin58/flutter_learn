@@ -156,8 +156,8 @@ class _FlutterLayoutPageState extends State<FlutterLayoutPage> {
             const Text('列表'),
             Expanded(
               child: Container(
-                decoration: BoxDecoration(color: Colors.red),
-                child: Text('拉伸填满高度'),
+                decoration: const BoxDecoration(color: Colors.red),
+                child: const Text('拉伸填满高度'),
               ),
             ),
           ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/utils.dart';
 
 class AppLifecycle extends StatefulWidget {
   const AppLifecycle({Key? key}) : super(key: key);
@@ -29,11 +30,11 @@ class _AppLifecycleState extends State<AppLifecycle> with WidgetsBindingObserver
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     super.didChangeAppLifecycleState(state);
-    print('state = $state');
+    printDebug('state = $state');
     if (state == AppLifecycleState.paused) {
-      print('App进入后台');
+      printDebug('App进入后台');
     } else if (state == AppLifecycleState.resumed) {
-      print('App进入前台');
+      printDebug('App进入前台');
     } else if (state == AppLifecycleState.inactive) {
       // 不常用，app不活跃且不接收用户输入时，比如来了个电话
     } else if (state == AppLifecycleState.detached) {

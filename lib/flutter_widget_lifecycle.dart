@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/utils.dart';
 
 /// StatelessWidget生命周期方法只有两个：createElement()和build()。
 ///
@@ -19,7 +20,7 @@ class _WidgetLifecycleState extends State<WidgetLifecycle> {
   @override
   void initState() {
     // 类似Android里的onCreate()和iOS里的viewDidLoad()，做一些初始化。
-    print('----initState----');
+    printDebug('----initState----');
     super.initState();
   }
 
@@ -28,7 +29,7 @@ class _WidgetLifecycleState extends State<WidgetLifecycle> {
     // 首次构建Widget时，在initState之后立即调用。
     // 若StatefulWidget依赖于InheritedWidget，InheritedWidget中变量改变时再次调用。
     // InheritedWidget高效的将数据在Widget树中向下传递、共享。
-    print('----didChangeDependencies----');
+    printDebug('----didChangeDependencies----');
     super.didChangeDependencies();
   }
 
@@ -36,7 +37,7 @@ class _WidgetLifecycleState extends State<WidgetLifecycle> {
   Widget build(BuildContext context) {
     // didChangeDependencies之后立即调用
     // setState后再次调用
-    print('----build----');
+    printDebug('----build----');
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter页面生命周期'),
@@ -63,21 +64,21 @@ class _WidgetLifecycleState extends State<WidgetLifecycle> {
   @override
   void didUpdateWidget(WidgetLifecycle oldWidget) {
     // 不常用，父组件重绘时调用
-    print('----didUpdateWidget----');
+    printDebug('----didUpdateWidget----');
     super.didUpdateWidget(oldWidget);
   }
 
   @override
   void deactivate() {
     // 不常用，组件被移除时在dispose前调用
-    print('----deactivate----');
+    printDebug('----deactivate----');
     super.deactivate();
   }
 
   @override
   void dispose() {
     // 组件被销毁时调用，执行一些资源释放工作
-    print('----dispose----');
+    printDebug('----dispose----');
     super.dispose();
   }
 }
