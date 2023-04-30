@@ -70,7 +70,7 @@ class _DynamicThemeState extends State<DynamicTheme> {
         'photoOld':(BuildContext context)=>const PhotoAppOld(),
         'image':(BuildContext context)=>const ImageDev(),
         'animation':(BuildContext context)=>const AnimationDev(),
-        'heroAnimation':(BuildContext context)=>const HeroAnimation(),
+        'radialExpansion':(BuildContext context)=>const RadialExpansionDemo(),
       },
     );
   }
@@ -107,7 +107,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
         _item('拍照App开发old', const PhotoAppOld(), 'photoOld'),
         _item('图片控件开发详解', const ImageDev(), 'image'),
         _item('动画开发指南', const AnimationDev(), 'animation'),
-        _item('Basic Hero Animation', const HeroAnimation(), 'heroAnimation'),
+        _item('Radial Transition Demo', const RadialExpansionDemo(), 'radialExpansion'),
       ],
     );
   }
