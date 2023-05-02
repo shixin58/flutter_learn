@@ -12,7 +12,6 @@ class _StatefulGroupState extends State<StatefulGroup> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'StatefulWidget与基础组件',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

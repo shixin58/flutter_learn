@@ -12,7 +12,6 @@ class _FlutterLayoutPageState extends State<FlutterLayoutPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '如何进行Flutter布局开发？',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

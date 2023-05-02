@@ -7,7 +7,6 @@ class LessGroupPage extends StatelessWidget {
   Widget build(BuildContext context) {
     TextStyle textStyle = const TextStyle(fontSize: 20);
     return MaterialApp(
-      title: 'StatelessWidget与基础组件',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
