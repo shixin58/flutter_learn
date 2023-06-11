@@ -20,10 +20,10 @@ class _ResPageState extends State<ResPage> {
           child: const Icon(Icons.arrow_back),
         ),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
+          children: <Widget>[
             Image(
               width: 100,
               height: 100,
